@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Deployment commands via 'foreman':
+  * foreman check                   # Validate your application's Procfile
+  * foreman export FORMAT LOCATION  # Export the application to another process management format
+  * foreman help [COMMAND]          # Describe available commands or one specific command
+  * foreman run COMMAND [ARGS...]   # Run a command using your application's environment
+  * foreman start [PROCESS]         # Start the application (or a specific PROCESS)
+  * foreman version                 # Display Foreman gem version
 
-Things you may want to cover:
+Options:
+  * -f, [--procfile=PROCFILE]  # Default: Procfile
+  * -d, [--root=ROOT]          # Default: Procfile directory
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

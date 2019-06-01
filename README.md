@@ -1,5 +1,16 @@
 # README
 
+Start Postgres via Homebrew:
+
+* To start manually:
+pg_ctl -D /usr/local/var/postgres start
+* To stop manually:
+pg_ctl -D /usr/local/var/postgres stop
+* To start PostgreSQL server now and relaunch at login:
+brew services start postgresql
+* And stop PostgreSQL:
+brew services stop postgresql
+
 Deployment commands via 'foreman':
   * foreman check                   # Validate your application's Procfile
   * foreman export FORMAT LOCATION  # Export the application to another process management format

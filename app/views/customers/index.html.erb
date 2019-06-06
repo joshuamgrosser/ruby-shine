@@ -1,18 +1,20 @@
 <header>
-<div class="h2">Customer Search</div>
+  <div class="h2">Customer Search</div>
+  <hello-angular>Loading...</hello-angular>
+  <%= javascript_pack_tag 'hello_angular' %>
 </header>
 <% if @customers.present? %>
   <%= render partial: "pager", locals: {keywords: @keywords, page: @page} %>
 <% end %>
 <section class="search-form">
   <%= form_for :customers, method: :get do |f| %>
-  <div class="input-group input-group-lg">
-    <%= label_tag :keywords, nil, class: "sr-only" %>
-    <%= text_field_tag :keywords, nil, placeholder: "First Name, Last Name, or Email", class: "form-control input-lg" %>
-    <span class="input-group-btn">
+    <div class="input-group input-group-lg">
+      <%= label_tag :keywords, nil, class: "sr-only" %>
+      <%= text_field_tag :keywords, nil, placeholder: "First Name, Last Name, or Email", class: "form-control input-lg" %>
+      <span class="input-group-btn">
       <%= submit_tag "Find Customers", class: "btn btn-primary btn-lg" %>
     </span>
-  </div>
+    </div>
   <% end %>
 </section>
 <section class="search-results">
@@ -23,12 +25,14 @@
   </header>
   <ol class="list-group">
     <% @customers.each do |customer| %>
-    <li class="list-group-item">
-      <div class="pull-right"><div class="h3">Joined <%= l customer.created_at.to_date %></div></div>
-      <div class="h2"><%= customer.first_name %> <%= customer.last_name %></div>
+      <li class="list-group-item">
+        <div class="pull-right">
+          <div class="h3">Joined <%= l customer.created_at.to_date %></div>
+        </div>
+        <div class="h2"><%= customer.first_name %> <%= customer.last_name %></div>
         <div class="h4"><%= customer.email %></div>
         <div class="h5"><%= customer.username %></div>
-    </li>
+      </li>
     <% end %>
   </ol>
   <% if @customers.present? %>

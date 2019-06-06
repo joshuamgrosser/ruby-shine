@@ -1,6 +1,9 @@
 <header>
 <div class="h2">Customer Search</div>
 </header>
+<% if @customers.present? %>
+  <%= render partial: "pager", locals: {keywords: @keywords, page: @page} %>
+<% end %>
 <section class="search-form">
   <%= form_for :customers, method: :get do |f| %>
   <div class="input-group input-group-lg">
@@ -18,24 +21,17 @@
       Results
     </div>
   </header>
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>Joined</th>
-    </tr>
-    </thead>
-    <tbody>
+  <ol class="list-group">
     <% @customers.each do |customer| %>
-    <tr>
-      <td><%= customer.first_name %></td>
-      <td><%= customer.last_name %></td>
-      <td><%= customer.email %></td>
-      <td><%= l customer.created_at.to_date %></td>
-    </tr>
+    <li class="list-group-item">
+      <div class="pull-right"><div class="h3">Joined <%= l customer.created_at.to_date %></div></div>
+      <div class="h2"><%= customer.first_name %> <%= customer.last_name %></div>
+        <div class="h4"><%= customer.email %></div>
+        <div class="h5"><%= customer.username %></div>
+    </li>
     <% end %>
-    </tbody>
-  </table>
+  </ol>
+  <% if @customers.present? %>
+    <%= render partial: "pager", locals: {keywords: @keywords, page: @page} %>
+  <% end %>
 </section>

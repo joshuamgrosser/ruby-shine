@@ -1,4 +1,9 @@
 import {Component, OnInit} from "@angular/core";
+import {HttpClientModule} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
+import {Customer} from "customers/app/customer";
+import {map} from "rxjs/internal/operators";
 
 var RESULTS = [
     {
@@ -85,20 +90,29 @@ var RESULTS = [
 export class AppComponent implements OnInit {
     customers = [];
     keywords = "";
+    customersUrl = "/customers.json?keywords=";
 
-    constructor() {
+    constructor(private http: HttpClient) {
     }
 
     ngOnInit(): void {
     }
 
     search(): void{
-        alert("Searched for: " + this.keywords);
+        this.getCustomers().subscribe((response) => {
+                this.customers = response;
+            }
+        );
         if(this.keywords == "josh"){
             this.customers = RESULTS;
         } else {
             this.customers = [];
         }
+    }
+
+    /** GET heroes from the server */
+    getCustomers(): Observable<Customer[]> {
+        return this.http.get<Customer[]>(this.customersUrl + this.keywords);
     }
 }
 

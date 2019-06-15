@@ -4,12 +4,14 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'capybara'
 gem 'devise'
 gem 'faker'
 gem 'foreman'
 gem 'rails', '~> 5.2.3'
 gem 'rspec'
 gem 'rspec-rails'
+gem 'selenium-webdriver'
 gem 'webpacker'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'

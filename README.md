@@ -22,3 +22,7 @@ brew services stop postgresql
 * foreman run COMMAND [ARGS...]   # Run a command using your application's environment
 * foreman start [PROCESS]         # Start the application (or a specific PROCESS)
 * foreman version                 # Display Foreman gem version
+
+### Selenium Chrome Driver ###
+Powers the acceptance test suite via capybara.
+* brew tap homebrew/cask && brew cask install chromedriver

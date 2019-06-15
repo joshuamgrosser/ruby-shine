@@ -53,18 +53,12 @@ var RESULTS = [
 </header> \
 <section class="search-form"> \
   <form> \
-    <div class="input-group input-group-lg"> \
       <label for="keywords" class="sr-only">Keywords></label> \
       <input type="text" id="keywords" name="keywords" \
              placeholder="First Name, Last Name, or Email Address"\
              class="form-control input-lg" \
-             bindon-ngModel="keywords"> \
-      <span class="input-group-btn"> \
-        <input type="submit" value="Find Customers"\
-         class="btn btn-primary btn-lg" \
-         on-click="search()"> \
-      </span> \
-    </div> \
+             bindon-ngModel="keywords"\
+             on-ngModelChange="search($event)"> \
   </form> \
 </section> \
 <section class="search-results"> \
@@ -98,19 +92,14 @@ export class AppComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    search(): void{
+    search(event: any): void{
+        this.keywords = event;
         this.getCustomers().subscribe((response) => {
                 this.customers = response;
             }
         );
-        if(this.keywords == "josh"){
-            this.customers = RESULTS;
-        } else {
-            this.customers = [];
-        }
     }
 
-    /** GET heroes from the server */
     getCustomers(): Observable<Customer[]> {
         return this.http.get<Customer[]>(this.customersUrl + this.keywords);
     }

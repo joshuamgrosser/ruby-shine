@@ -6,16 +6,12 @@ It is a sample app based on the examples in the book from "Rails, Angular, Postg
 https://www.amazon.com/Rails-Angular-Postgres-Bootstrap-Development/dp/1680502204/ref=dp_ob_title_bk
 
 ### Postgres ###
-* To start manually:
-pg_ctl -D /usr/local/var/postgres start
-* To stop manually:
-pg_ctl -D /usr/local/var/postgres stop
-* To start PostgreSQL server now and relaunch at login:
-brew services start postgresql
-* And stop PostgreSQL:
-brew services stop postgresql
+* Installation: brew install postgres
+* To start PostgreSQL server and relaunch at login: brew services start postgresql
+* And stop PostgreSQL: brew services stop postgresql
 
 ### Foreman ###
+* Installation: gem install foreman
 * foreman check                   # Validate your application's Procfile
 * foreman export FORMAT LOCATION  # Export the application to another process management format
 * foreman help [COMMAND]          # Describe available commands or one specific command

@@ -6,12 +6,19 @@ It is a sample app based on the examples in the book from "Rails, Angular, Postg
 https://www.amazon.com/Rails-Angular-Postgres-Bootstrap-Development/dp/1680502204/ref=dp_ob_title_bk
 
 ### Postgres ###
-* Installation: brew install postgres
+Installation: brew install postgres
 * To start PostgreSQL server and relaunch at login: brew services start postgresql
 * And stop PostgreSQL: brew services stop postgresql
 
+To create and seed the database:
+* `createuser --createdb --login -P shine`
+* `bundle exec rails db:create`
+* `bundle exec rails db:migrate` 
+* `bundle exec rails db:seed`
+* `RAILS_ENV='test' bundle exec rails db:seed`
+
 ### Foreman ###
-* Installation: gem install foreman
+Installation: gem install foreman
 * foreman check                   # Validate your application's Procfile
 * foreman export FORMAT LOCATION  # Export the application to another process management format
 * foreman help [COMMAND]          # Describe available commands or one specific command
